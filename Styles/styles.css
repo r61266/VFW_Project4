@@ -4,15 +4,17 @@
 /* VFW_Project4 */
 
 body {
-	background: #9a9a99;
+	background: rgb(153,0,51);
+	
 }
-
 h1 {
-	color: black; 
+	color: White; 
 	outline: 1px dotted white;
 	padding: 8px;
 	width: 50%;
 	font-weight: bold;
+	font-family: "Times New Roman";
+	font-style: bold;
 }
 
 p {
@@ -32,16 +34,22 @@ label {
 
 legend {
 	font-weight: bold;
-	color: black; 
+	color: White; 
 	font-size: 20px;
 	border: 1.5px dashed gray;
 }
 
 fieldset {
-	background: white;
+	background-image: radial-gradient(top, rgb(153,0,51) 25%, rgb(147,92,93) 63%, rgb(177,120,121) 82%);
+    background-image: -o-radial-gradient(top, rgb(153,0,51) 25%, rgb(147,92,93) 63%, rgb(177,120,121) 82%);
+    background-image: -moz-radial-gradient(top, rgb(153,0,51) 25%, rgb(147,92,93) 63%, rgb(177,120,121) 82%);
+    background-image: -webkit-linear-gradient(top, rgb(153,0,51) 25%, rgb(147,92,93) 63%, rgb(177,120,121) 82%);
+    background-image: -ms-linear-gradient(top, rgb(153,0,51) 25%, rgb(147,92,93) 63%, rgb(177,120,121) 82%);
+;
 }
 
 li {
+	color: white;
 	font-family: sans-serif;
 	font-style: italic;
 }
