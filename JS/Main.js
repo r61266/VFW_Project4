@@ -165,7 +165,6 @@ window.addEventListener("DOMContentLoaded", function(){
 	function deleteItem(){
 		var ask = confirm("Are you sure you want to delete this birthday?");
 		if(ask){
-			local.Storage.removeItem(this.key);
 			window.location.reload();
 		}else{
 			alert("Contact was not deleted!");
@@ -178,6 +177,7 @@ window.addEventListener("DOMContentLoaded", function(){
 	function clearLocal() {
 		if(localStorage.length === 0){
 			alert("There is no data to clear.")
+			window.location.reload();	
 		}else{
 			localStorage.clear();
 			alert("All Birthday dates are deleted!");
