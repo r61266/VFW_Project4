@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<!-- Alec Shallenberger-->
+<!-- Project 1-->
+<!-- Term 1303-->
+<!-- March 7, 2013-->
+<html>
+	<head>
+		<!--Document Title -->
+		<link rel="stylesheet" href="Styles/styles.css"/>
+		<meta charset="utf-8"/>
+		<meta keywords="B-day, party"/>
+		<meta description="On the day of that birthday, there will be a party"/>
+		<meta name="robots" content="index, follow"/>
+		<meta name="viewport" content="user-scalable=yes, width=device-width"/>
+		<title>Birthday App</title>
+	</head>
+	<body>
+		<!-- App Header -->
+		<h1><a href="index.html">Birthday Organizer</a></h1>
+		<p> An app primarily used for what you will need on the daily bases. You can use this app to edit and customize any pre-existing birthday added already in your birthday list or you can just add a birthday right on the go.</p>  
+		<nav>
+            <a href= "#" id="displayLink">Display Data</a>
+            <a href= "#" id="clear">Clear Stored Data</a>
+   	    	<a href= "additem.html" id="addNew" style="display:block;">Add New Birthday</a>
+        </nav>	
+        <form action="#" method="post" id="contactForm">
+			<fieldset>
+				<legend>Birthday Information</legend>
+				<ul id="errors"></ul>
+                <ul id="questions"></ul>
+                <ul>
+					<li><label for="fname">First Name:</label><input id="fname" /></li>
+					<li><label for="lname">Last Name:</label><input id="lname" /></li>
+					<li><label for="date">Date of Birth:</label><input id="date" /></li>
+					<li><label for="email">Email:</label><input id="email" /></li>
+					<li><label for="age">Age:</label><input id="age" /></li>
+					<li><label for="addr">Home address:</label><input id="addr" /></li>
+				</ul>
+			</fieldset>
+			<fieldset>
+				<legend>Additional Information</legend>
+				<ul>
+					<li>Check favorites:
+						<ul>
+							<li><input type="checkbox" checked value="Video Games" id="video games" /><label for="video games">Video Games</label></li>
+							<li><input type="checkbox" value="Outside Activites" id="act" /><label for="act">Outside Activities</label></li>	
+							<li><input type="checkbox" value="electronics" id="elect" /><label for="elect">Electronics</label></li>
+						</ul>		
+					</li>
+					<li>Male or female?
+						<ul>
+							<li><input type="radio" checked value="Male" id="male" name="sex" /><label for="male">Male</label></li>
+							<li><input type="radio" value="Female" id="female" name="sex" /><label for="female">Female</label></li>
+						</ul>
+					</li>
+					<li>
+						<label for="Artist">Preferred Artist</label>
+						<select id="Artist">
+							<optgroup label="Rock">
+								<option value="Linkin Park">Linkin Park</option>
+								<option value="Disturbed">Disturbed</option>
+								<option value="Decyfer Down">Decyfer Down</option>
+							</optgroup>
+							<optgroup label="Rap/Hip-Hop">
+								<option value="Lil Wayne">Lil Wayne</option>
+								<option value="2chainz">2chainz</option>
+								<option value="Chris Brown">Chris Brown</option>
+							</optgroup>
+						</select>
+					</li>
+					<li><label for="Notes">Additional Notes:</label><textarea id="Notes"></textarea></li>
+					<li><input type="hidden" value="true" /></li>
+						</ul>
+				</fieldset>	
+				<input type="submit" value="Add Birthday" id="submit" /><br /Input>
+			</form> 			
+			<script src="JS/Main.js" type="text/javascript"></script>
+		</body>
+</html>

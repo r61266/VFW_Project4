@@ -1,0 +1,54 @@
+/* Alec Shallenberger */
+/* March 13, 2013 */
+/* Term 1303 */
+/* VFW_Project2 */
+
+body {
+	background: #9a9a99;
+}
+
+h1 {
+	color: black; 
+	outline: 1px dotted white;
+	padding: 8px;
+	width: 50%;
+	font-weight: bold;
+}
+
+p {
+	color: white;
+	font-family: Arial;
+	font-style: italic;
+	font-size: 16px;
+	text-align: center; 
+	line-height: 1.2em;
+}
+
+label {
+	display: block;
+	font-family: Arial;
+	font-size: 14px;
+}
+
+legend {
+	font-weight: bold;
+	color: black; 
+	font-size: 20px;
+	border: 1.5px dashed gray;
+}
+
+fieldset {
+	background: white;
+}
+
+li {
+	font-family: sans-serif;
+	font-style: italic;
+}
+
+
+
+
+
+
+
