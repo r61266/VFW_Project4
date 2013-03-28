@@ -2,7 +2,7 @@
 // Alec Shallenberger
 // March 13, 2013
 // Term 1303
-// VFW Project3
+// VFW Project4
 
 window.addEventListener("DOMContentLoaded", function(){
 
@@ -26,11 +26,13 @@ window.addEventListener("DOMContentLoaded", function(){
 				$('contactForm').style.display = "none";
 				$('clear').style.display = "inline";
 				$('displayLink').style.display = "none";
+				$('addNew').style.display = "inline";
 				break;
 			case "off":
 				$('contactForm').style.display = "block";
 				$('clear').style.display = "inline";
 				$('displayLink').style.display = "inline";
+				$('addNew').style.display = "none";
 				$('items').style.display = "none";
 				break;
 			default:
@@ -38,8 +40,12 @@ window.addEventListener("DOMContentLoaded", function(){
 		}
 	}
 	
-	function storeData() {
-		var id					= Math.floor(Math.random()*100000001);
+	function storeData(key){
+		if(!key){
+			var id					= Math.floor(Math.random()*100000001);
+		}else{
+			id = key;
+		}
 		getSelectedRadio();
 		var item				= {};
 			item.fname 			= ["First Name:", $('fname').value];
@@ -59,8 +65,8 @@ window.addEventListener("DOMContentLoaded", function(){
 	function getData() {
 		toggleControls("on");
 		if(localStorage.length === 0){
-			alert("There is no data in Local Storage so default was added.");
 			autoFillData();
+			alert("There is no data in Local Storage so default was added.");
 		}
 		var makeDiv = document.createElement('div');
 		makeDiv.setAttribute("id", "items");
@@ -68,7 +74,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		makeDiv.appendChild(makeList);
 		document.body.appendChild(makeDiv);
 		$('items').style.display = "block";
-		for(var i=0, len=localStorage.length; i<len; i++){
+		for(var i=0, len=localStorage.length; i<len;i++){
 			var makeli = document.createElement('li');
 			var linksLi = document.createElement('li');
 			makeList.appendChild(makeli);
@@ -77,7 +83,7 @@ window.addEventListener("DOMContentLoaded", function(){
 			var object = JSON.parse(value);
 			var makeSubList = document.createElement('ul');
 			makeli.appendChild(makeSubList);
-			getImage(object.group[1], makeSubList);
+			getImage(object.Artist[1], makeSubList);
 			for(var t in object){
 				var makeSubli = document.createElement('li');
 				makeSubList.appendChild(makeSubli);
@@ -101,11 +107,11 @@ window.addEventListener("DOMContentLoaded", function(){
 		for(var t in json){
 			var id = Math.floor(Math.random()*100000001);
 			localStorage.setItem(id, JSON.stringify(json[t]));
-			}
 		}
+	}
 	
 	function makeItemLinks(key, linksLi){
-		var editLink = document.createElement('#');
+		var editLink = document.createElement('a');
 		editLink.href = "#";
 		editLink.key = key;
 		var editText = "Edit Birthday";
@@ -113,7 +119,10 @@ window.addEventListener("DOMContentLoaded", function(){
 		editLink.innerHTML = editText;
 		linksLi.appendChild(editLink);
 		
-		var deleteLink = document.createElement('#');
+		var breakTag = document.createElement('br');
+		linksLi.appendChild(breakTag);
+		
+		var deleteLink = document.createElement('a');
 		deleteLink.href = "#";
 		deleteLink.key = key;
 		var deleteText = "Delete Birthday";
@@ -131,10 +140,10 @@ window.addEventListener("DOMContentLoaded", function(){
 		
 		$('fname').value = item.fname[1];
 		$('lname').value = item.lname[1];
-		$('date').value = item.date[1];
+		$('date').value  = item.date[1];
 		$('email').value = item.email[1];
-		$('age').value = item.age[1];
-		$('addr').value = item.addr[1];
+		$('age').value   = item.age[1];
+		$('addr').value  = item.addr[1];
 		var radios = document.forms[0].sex;
 		for(var i=0; i<radios.length; i++){
 			if(radios[i].value == "Male" && item.sex[1] == "Male"){

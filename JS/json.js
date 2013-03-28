@@ -1,4 +1,8 @@
 // JavaScript Document
+// Alec Shalenberger
+// March 28, 2013
+// Term 1303
+// VFW Project 4
 
 var json = {
 	"Birthday1": {
