@@ -1,3 +1,4 @@
+// JavaScript Document
 // Alec Shallenberger
 // March 13, 2013
 // Term 1303
@@ -38,7 +39,7 @@ window.addEventListener("DOMContentLoaded", function(){
 	}
 	
 	function storeData() {
-		var id					= Math.floor(Math.random()*100001);
+		var id					= Math.floor(Math.random()*100000001);
 		getSelectedRadio();
 		var item				= {};
 			item.fname 			= ["First Name:", $('fname').value];
@@ -58,7 +59,8 @@ window.addEventListener("DOMContentLoaded", function(){
 	function getData() {
 		toggleControls("on");
 		if(localStorage.length === 0){
-			alert("There is no data in Local Storage.");
+			alert("There is no data in Local Storage so default was added.");
+			autoFillData();
 		}
 		var makeDiv = document.createElement('div');
 		makeDiv.setAttribute("id", "items");
@@ -75,8 +77,9 @@ window.addEventListener("DOMContentLoaded", function(){
 			var object = JSON.parse(value);
 			var makeSubList = document.createElement('ul');
 			makeli.appendChild(makeSubList);
+			getImage(object.group[1], makeSubList);
 			for(var t in object){
-				varmakeSubli = document.createElement('li');
+				var makeSubli = document.createElement('li');
 				makeSubList.appendChild(makeSubli);
 				var optSubText = object[t][0]+" "+object[t][1];
 				makeSubli.innerHTML = optSubText;
@@ -85,6 +88,21 @@ window.addEventListener("DOMContentLoaded", function(){
 			makeItemLinks(localStorage.key(i), linksLi); 
 		} 
 	}
+	
+	function getImage(sex ,makeSubList){
+		var pictureLi = document.createElement('li');
+		makeSubList.appendChild(pictureLi);
+		var newPic = document.createElement('img');
+		var setSrc = newPic.setAttribute("src", "Images/" + sex + ".png");	
+		pictureLi.appendChild(newPic);
+	}
+	
+	function autoFillData(){
+		for(var t in json){
+			var id = Math.floor(Math.random()*100000001);
+			localStorage.setItem(id, JSON.stringify(json[t]));
+			}
+		}
 	
 	function makeItemLinks(key, linksLi){
 		var editLink = document.createElement('#');
